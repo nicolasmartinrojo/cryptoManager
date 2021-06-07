@@ -10,8 +10,8 @@ const AccountRepository: IAccountReposity = {
   deposit: (num: number, divisa: tiposDivisa): Promise<number> => {
     return Account.deposit(num, divisa);
   },
-  withdraw: (num: number, divisa: tiposDivisa): void => {
-    Account.withdraw(num, divisa);
+  withdraw: (num: number, divisa: tiposDivisa): Promise<number> => {
+    return Account.withdraw(num, divisa);
   },
   transfer: (
     num: number,

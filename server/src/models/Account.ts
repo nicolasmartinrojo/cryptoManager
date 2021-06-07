@@ -1,6 +1,6 @@
 import db from "../db";
 import IAccount from "../interfaces/IAccount";
-import { tiposDivisa } from "../interfaces/IAccountTypes";
+import IAccountTypes, { tiposDivisa } from "../interfaces/IAccountTypes";
 import cotizar from "../utils/cotizar";
 import AccountTypes from "./AccountTypes";
 
@@ -8,7 +8,16 @@ const tableName = "cuenta";
 
 const Account = {
   list: (): Promise<IAccount[]> => {
-    return db<IAccount>(tableName).select();
+    return db<IAccount & IAccountTypes>(tableName)
+      .join("tipo_cuenta", "id_tipo_cuenta", "tipo_cuenta.id")
+      .select(
+        "alias",
+        "id_unico",
+        "numero_cuenta",
+        "saldo",
+        "tipo",
+        "cotizacion"
+      );
   },
   deposit: async (num: number, divisa: tiposDivisa): Promise<number> => {
     const tipo_cuenta = await AccountTypes.get(divisa);
@@ -37,7 +46,6 @@ const Account = {
 
     const cantATransferir = cotizar(num, rowDivisaFrom, rowDivisaTo);
 
-    console.log(cantATransferir);
     return await Promise.all([
       db<IAccount>(tableName)
         .decrement("saldo", num)

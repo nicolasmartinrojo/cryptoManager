@@ -12,6 +12,9 @@ const Header = () => {
         <Center w="100px">
           <Link to="/bitacora/">Bitacora</Link>
         </Center>
+        <Center w="100px">
+          <Link to="/operaciones/">Operaciones</Link>
+        </Center>
       </Stack>
     </Flex>
   );

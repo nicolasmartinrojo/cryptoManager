@@ -16,6 +16,13 @@ accountRouter.post("/depositar", (req, res) => {
   );
 });
 
+accountRouter.post("/retirar", (req, res) => {
+  const { num, divisa } = req.body;
+  AccountRepository.withdraw(num, divisa).then((success: number) => {
+    res.json({ success: success });
+  });
+});
+
 accountRouter.post("/transferir", (req, res) => {
   const { num, divisaFrom, divisaTo } = req.body;
   AccountRepository.transfer(num, divisaFrom, divisaTo).then(
