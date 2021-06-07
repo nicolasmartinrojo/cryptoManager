@@ -1,0 +1,319 @@
+{
+	"info": {
+		"_postman_id": "dfe02312-3ecb-47aa-ae65-59d392fda641",
+		"name": "Parcial1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "DEPOSITAR 100 PESOS",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "num",
+							"value": "100",
+							"type": "text"
+						},
+						{
+							"key": "divisa",
+							"value": "PES",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/account/depositar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"account",
+						"depositar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DEPOSITAR 100 DOLARES",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "num",
+							"value": "100",
+							"type": "text"
+						},
+						{
+							"key": "divisa",
+							"value": "USD",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/account/depositar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"account",
+						"depositar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "transferir PESOS a DOLARES",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "num",
+							"value": "100",
+							"type": "text"
+						},
+						{
+							"key": "divisaFrom",
+							"value": "PES",
+							"type": "text"
+						},
+						{
+							"key": "divisaTo",
+							"value": "USD",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/account/transferir",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"account",
+						"transferir"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "transferir PESOS a CRYPTO",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "num",
+							"value": "100",
+							"type": "text"
+						},
+						{
+							"key": "divisaFrom",
+							"value": "PES",
+							"type": "text"
+						},
+						{
+							"key": "divisaTo",
+							"value": "CRY",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/account/transferir",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"account",
+						"transferir"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "transferir DOLARES a PESOS",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "num",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "divisaFrom",
+							"value": "USD",
+							"type": "text"
+						},
+						{
+							"key": "divisaTo",
+							"value": "CRY",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/account/transferir",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"account",
+						"transferir"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "transferir DOLARES a CRYPTO",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "num",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "divisaFrom",
+							"value": "USD",
+							"type": "text"
+						},
+						{
+							"key": "divisaTo",
+							"value": "CRY",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/account/transferir",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"account",
+						"transferir"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "transferir CRYPTO a DOLARES",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "num",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "divisaFrom",
+							"value": "CRY",
+							"type": "text"
+						},
+						{
+							"key": "divisaTo",
+							"value": "USD",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/account/transferir",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"account",
+						"transferir"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "transferir CRYPTO a PESOS",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "num",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "divisaFrom",
+							"value": "CRY",
+							"type": "text"
+						},
+						{
+							"key": "divisaTo",
+							"value": "PES",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/account/transferir",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"account",
+						"transferir"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
