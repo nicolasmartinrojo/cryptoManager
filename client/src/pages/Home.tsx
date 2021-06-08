@@ -1,4 +1,4 @@
-import { HStack } from "@chakra-ui/layout";
+import { Divider, Heading, HStack } from "@chakra-ui/layout";
 import React from "react";
 import IAccount from "../models/IAccount";
 import Card from "../partials/Card";
@@ -12,11 +12,15 @@ const Home = () => {
     });
   }, []);
   return (
-    <HStack>
-      {divisas.map((divisa) => (
-        <Card divisa={divisa} key={divisa.tipo} />
-      ))}
-    </HStack>
+    <>
+      <Heading>Dashboard</Heading>
+      <Divider />
+      <HStack>
+        {divisas.map((divisa) => (
+          <Card divisa={divisa} key={divisa.tipo} />
+        ))}
+      </HStack>
+    </>
   );
 };
 

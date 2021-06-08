@@ -1,9 +1,12 @@
 import axios from "axios";
-axios.defaults.baseURL = "http://localhost:5000/account";
+import config from "../config";
+
+axios.defaults.baseURL = config.SERVER_URL;
+axios.defaults.headers.common["user-id"] = config.USER_ID;
 const AccountApi = {
   list: () => {
     return axios
-      .get("")
+      .get("account")
       .then(function (response) {
         // handle success
         return response.data;
@@ -15,7 +18,7 @@ const AccountApi = {
   },
   deposit: (data: object) => {
     return axios
-      .post("depositar", data)
+      .post("account/depositar", data)
       .then(function (response) {
         // handle success
         return response.data;
@@ -27,7 +30,7 @@ const AccountApi = {
   },
   withdraw: (data: object) => {
     return axios
-      .post("retirar", data)
+      .post("account/retirar", data)
       .then(function (response) {
         // handle success
         return response.data;
@@ -39,7 +42,7 @@ const AccountApi = {
   },
   transfer: (data: object) => {
     return axios
-      .post("transferir", data)
+      .post("account/transferir", data)
       .then(function (response) {
         // handle success
         return response.data;

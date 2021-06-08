@@ -2,6 +2,7 @@ import db from "../db";
 import IAccount from "../interfaces/IAccount";
 import IAccountTypes, { tiposDivisa } from "../interfaces/IAccountTypes";
 import cotizar from "../utils/cotizar";
+import log from "../utils/log";
 import AccountTypes from "./AccountTypes";
 
 const tableName = "cuenta";
@@ -21,6 +22,9 @@ const Account = {
   },
   deposit: async (num: number, divisa: tiposDivisa): Promise<number> => {
     const tipo_cuenta = await AccountTypes.get(divisa);
+
+    log(`Deposito - $${num} a la cuenta ${tipo_cuenta.tipo}`);
+
     return db<IAccount>(tableName)
       .increment("saldo", num)
       .where("id_tipo_cuenta", "=", tipo_cuenta!.id);
@@ -31,6 +35,9 @@ const Account = {
      */
 
     const tipo_cuenta = await AccountTypes.get(divisa);
+
+    log(`Retiro - $${num} a la cuenta ${tipo_cuenta.tipo}`);
+
     return db<IAccount>(tableName)
       .decrement("saldo", num)
       .where("id_tipo_cuenta", "=", tipo_cuenta!.id);
@@ -45,7 +52,13 @@ const Account = {
     const rowDivisaTo = await AccountTypes.get(divisaTo);
 
     const cantATransferir = cotizar(num, rowDivisaFrom, rowDivisaTo);
+    log(
+      `Transferir - $${num} de la cuenta de ${rowDivisaFrom.tipo} a la cuenta de ${rowDivisaTo.tipo}`
+    );
 
+    /**
+     * @todo: validacion por saldo disponible
+     */
     return await Promise.all([
       db<IAccount>(tableName)
         .decrement("saldo", num)

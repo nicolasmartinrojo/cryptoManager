@@ -1,7 +1,6 @@
 import React from "react";
-import { Box, Badge } from "@chakra-ui/layout";
+import { Box } from "@chakra-ui/layout";
 import { Image } from "@chakra-ui/react";
-import { StarIcon } from "@chakra-ui/icons";
 import IAccount, { nombresDivisa, tiposDivisa } from "../models/IAccount";
 
 interface Props {
@@ -46,18 +45,7 @@ const Card = ({ divisa }: Props) => {
           {nombresDivisa[divisa.tipo]}
         </Box>
 
-        <Box>${divisa.saldo}</Box>
-
-        <Box d="flex" mt="2" alignItems="center">
-          {Array(5)
-            .fill("")
-            .map((_, i) => (
-              <StarIcon key={i} color={"teal.500"} />
-            ))}
-          <Box as="span" ml="2" color="gray.600" fontSize="sm">
-            reviews
-          </Box>
-        </Box>
+        <Box>$ {divisa.saldo}</Box>
       </Box>
     </Box>
   );

@@ -27,8 +27,10 @@ accountRouter.post("/transferir", (req, res) => {
   const { num, divisaFrom, divisaTo } = req.body;
   AccountRepository.transfer(num, divisaFrom, divisaTo).then(
     (success: number[]) => {
-      console.log(success);
-      res.json({});
+      const finalSuccess = success.every(function (e) {
+        return e === 1;
+      });
+      res.json({ success: finalSuccess });
     }
   );
 });

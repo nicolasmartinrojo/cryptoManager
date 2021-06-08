@@ -1,10 +1,9 @@
 import React from "react";
 
-import { ChakraProvider, theme, Stack, Center } from "@chakra-ui/react";
+import { ChakraProvider, theme, Stack, Center, VStack } from "@chakra-ui/react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Header } from "./partials";
-import { Home, Bitacora } from "./pages";
-import Operaciones from "./pages/Operaciones";
+import { Home, Bitacora, Operaciones } from "./pages";
 
 export const App = () => {
   return (
@@ -13,17 +12,19 @@ export const App = () => {
         <Stack>
           <Header />
           <Center>
-            <Switch>
-              <Route path="/bitacora">
-                <Bitacora />
-              </Route>
-              <Route path="/operaciones">
-                <Operaciones />
-              </Route>
-              <Route path="/">
-                <Home />
-              </Route>
-            </Switch>
+            <VStack>
+              <Switch>
+                <Route path="/bitacora">
+                  <Bitacora />
+                </Route>
+                <Route path="/operaciones">
+                  <Operaciones />
+                </Route>
+                <Route path="/">
+                  <Home />
+                </Route>
+              </Switch>
+            </VStack>
           </Center>
         </Stack>
       </Router>
