@@ -1,5 +1,5 @@
 import IAccountTypes, { tiposDivisa } from "../interfaces/IAccountTypes";
-import AccountTypesDAL from "./dal/AccountTypesDal";
+import AccountTypesDAL from "./dal/AccountTypesDAL";
 
 const AccountTypes = {
   get: (type: tiposDivisa): Promise<IAccountTypes> => {

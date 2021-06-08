@@ -9,5 +9,3 @@ export default knex({
     database: "parcial1",
   },
 });
-
-// export default db;
