@@ -12,18 +12,15 @@ const cotizar = (
       // rowDivisaTo.CRY
       return num / rowDivisaTo.cotizacion;
     }
-  }
-
-  if (rowDivisaFrom.tipo == tiposDivisa.PES) {
+  } else if (rowDivisaFrom.tipo == tiposDivisa.PES) {
     if (rowDivisaTo.tipo == tiposDivisa.USD) {
       return num * rowDivisaFrom.cotizacion;
     } else {
       // rowDivisaTo.CRY
       return (num * rowDivisaFrom.cotizacion) / rowDivisaTo.cotizacion;
     }
-  }
-
-  if (rowDivisaFrom.tipo == tiposDivisa.CRY) {
+  } else {
+    // (rowDivisaFrom.tipo == tiposDivisa.CRY)
     if (rowDivisaTo.tipo == tiposDivisa.USD) {
       return num * rowDivisaFrom.cotizacion;
     } else {

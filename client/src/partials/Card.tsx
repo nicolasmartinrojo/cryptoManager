@@ -1,5 +1,5 @@
 import React from "react";
-import { Box } from "@chakra-ui/layout";
+import { Box, Divider, Heading } from "@chakra-ui/layout";
 import { Image } from "@chakra-ui/react";
 import IAccount, { nombresDivisa, tiposDivisa } from "../models/IAccount";
 
@@ -35,17 +35,11 @@ const Card = ({ divisa }: Props) => {
           ></Box>
         </Box>
 
-        <Box
-          mt="1"
-          fontWeight="semibold"
-          as="h4"
-          lineHeight="tight"
-          isTruncated
-        >
-          {nombresDivisa[divisa.tipo]}
+        <Box mt="1" fontWeight="semibold" lineHeight="tight" isTruncated>
+          <Heading size="lg">{nombresDivisa[divisa.tipo]}</Heading>
         </Box>
-
-        <Box>$ {divisa.saldo}</Box>
+        <Divider bg="teal.500" height="1" mx="0" my="4" />
+        <Box>$ {divisa.saldo.toFixed(2)}</Box>
       </Box>
     </Box>
   );

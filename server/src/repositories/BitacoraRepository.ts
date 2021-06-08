@@ -1,6 +1,6 @@
 import IBitacoraReposity from "./IBitacoraRepository";
 import IBitacora from "../interfaces/IBitacora";
-import Bitacora from "../models/Bitacora";
+import Bitacora from "../models/dal/BitacoraDAL";
 
 const BitacoraRepository: IBitacoraReposity = {
   getAll: (): Promise<IBitacora[]> => {

@@ -10,10 +10,10 @@ const Header = () => {
           <Link to="/">Home</Link>
         </Center>
         <Center w="100px">
-          <Link to="/bitacora/">Bitacora</Link>
+          <Link to="/operaciones/">Operaciones</Link>
         </Center>
         <Center w="100px">
-          <Link to="/operaciones/">Operaciones</Link>
+          <Link to="/bitacora/">Bitacora</Link>
         </Center>
       </Stack>
     </Flex>

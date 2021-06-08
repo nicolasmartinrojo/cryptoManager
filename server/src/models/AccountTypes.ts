@@ -1,13 +1,9 @@
-import db from "../db";
 import IAccountTypes, { tiposDivisa } from "../interfaces/IAccountTypes";
+import AccountTypesDAL from "./dal/AccountTypesDal";
 
-const tableName = "tipo_cuenta";
 const AccountTypes = {
   get: (type: tiposDivisa): Promise<IAccountTypes> => {
-    return db<IAccountTypes>(tableName)
-      .where("tipo", "=", type)
-      .first()
-      .then((row) => row!);
+    return AccountTypesDAL.get(type);
   },
 };
 

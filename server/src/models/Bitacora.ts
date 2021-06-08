@@ -1,17 +1,14 @@
-import db from "../db";
 import IBitacora from "../interfaces/IBitacora";
+import BitacoraDAL from "./dal/BitacoraDAL";
 
 const tableName = "bitacora";
 
 const Bitacora = {
   list: (): Promise<IBitacora[]> => {
-    return db<IBitacora>(tableName).select();
+    return BitacoraDAL.list();
   },
   insert: (description: string): Promise<number> => {
-    return db<IBitacora>(tableName).insert({
-      user_id: 1,
-      description,
-    });
+    return BitacoraDAL.insert(description);
   },
 };
 

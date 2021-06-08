@@ -3,6 +3,12 @@ import config from "../config";
 
 axios.defaults.baseURL = config.SERVER_URL;
 axios.defaults.headers.common["user-id"] = config.USER_ID;
+
+type OperacionReturn = {
+  success: boolean;
+  error?: string;
+};
+
 const AccountApi = {
   list: () => {
     return axios
@@ -17,16 +23,9 @@ const AccountApi = {
       });
   },
   deposit: (data: object) => {
-    return axios
-      .post("account/depositar", data)
-      .then(function (response) {
-        // handle success
-        return response.data;
-      })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      });
+    return axios.post("account/depositar", data).then(function (response) {
+      return response.data;
+    });
   },
   withdraw: (data: object) => {
     return axios
@@ -41,17 +40,11 @@ const AccountApi = {
       });
   },
   transfer: (data: object) => {
-    return axios
-      .post("account/transferir", data)
-      .then(function (response) {
-        // handle success
-        return response.data;
-      })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      });
+    return axios.post("account/transferir", data).then(function (response) {
+      // handle success
+      return response.data;
+    });
   },
 };
-
+export type { OperacionReturn };
 export default AccountApi;
